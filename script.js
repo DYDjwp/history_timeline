@@ -13,11 +13,141 @@ let pointerActive = false;
 
 let wheelLocked = false;
 
+/* ---------- bg music ---------- */
+const bgMusic = document.getElementById("bgMusic");
+const musicToggle = document.getElementById("musicToggle");
+const musicFab = document.getElementById("musicFab");
+
+function syncMusicPlayingVisual() {
+  if (!bgMusic || !musicFab) return;
+  const audible = !bgMusic.paused && !bgMusic.muted;
+  musicFab.classList.toggle("is-playing", audible);
+}
+
+function syncMusicButton() {
+  if (!bgMusic || !musicToggle) return;
+  const muted = bgMusic.muted;
+  musicToggle.classList.toggle("is-muted", muted);
+  musicToggle.setAttribute("aria-pressed", muted ? "true" : "false");
+  musicToggle.setAttribute(
+    "aria-label",
+    muted ? "Unmute background music" : "Mute background music"
+  );
+  syncMusicPlayingVisual();
+}
+
+if (bgMusic) {
+  bgMusic.volume = 0.55;
+  bgMusic.muted = false;
+}
+
+if (musicToggle && bgMusic) {
+  musicToggle.addEventListener("click", async () => {
+    bgMusic.muted = !bgMusic.muted;
+
+    if (bgMusic.paused) {
+      try {
+        await bgMusic.play();
+      } catch (err) {
+        console.error("Music play failed:", err);
+      }
+    }
+
+    syncMusicButton();
+  });
+
+  syncMusicButton();
+}
+
+if (bgMusic) {
+  const attemptAutoplay = () =>
+    bgMusic.play().catch(() => {
+      /* autoplay may be blocked until user interacts */
+    });
+
+  attemptAutoplay();
+
+  const unlockAudio = () => {
+    attemptAutoplay();
+    window.removeEventListener("pointerdown", unlockAudio);
+    window.removeEventListener("keydown", unlockAudio);
+  };
+
+  window.addEventListener("pointerdown", unlockAudio, { once: true });
+  window.addEventListener("keydown", unlockAudio, { once: true });
+
+  ["play", "pause", "volumechange", "ended"].forEach((ev) => {
+    bgMusic.addEventListener(ev, syncMusicPlayingVisual);
+  });
+  syncMusicPlayingVisual();
+}
+
 /* ---------- typewriter ---------- */
 let typingTimer = null;
 const reduceMotion = window.matchMedia
   ? window.matchMedia("(prefers-reduced-motion: reduce)").matches
   : false;
+
+const INTRO_TEXT =
+  "This project argues that Justin Dart Jr. helped transform disability from a private struggle into a public civil-rights issue, turning access from charity into law.";
+
+let introTypingTimer = null;
+
+function dismissIntro() {
+  const overlay = document.getElementById("introOverlay");
+  if (overlay) {
+    overlay.classList.add("intro-overlay--dismissed");
+    overlay.setAttribute("aria-hidden", "true");
+    window.setTimeout(() => {
+      overlay.style.display = "none";
+    }, 500);
+  }
+  if (introTypingTimer) {
+    clearTimeout(introTypingTimer);
+    introTypingTimer = null;
+  }
+  startTypewriterForSlide(current);
+}
+
+function runIntro() {
+  const overlay = document.getElementById("introOverlay");
+  const textEl = document.getElementById("introTypeText");
+  const btn = document.getElementById("introStartBtn");
+  if (!overlay || !textEl || !btn) {
+    startTypewriterForSlide(current);
+    return;
+  }
+
+  if (reduceMotion) {
+    textEl.textContent = INTRO_TEXT;
+    btn.hidden = false;
+    btn.addEventListener("click", dismissIntro, { once: true });
+    btn.focus();
+    return;
+  }
+
+  const baseDelay = 14;
+  const punctExtra = 45;
+  let i = 0;
+
+  const tick = () => {
+    textEl.textContent = INTRO_TEXT.slice(0, i + 1);
+    i += 1;
+    if (i >= INTRO_TEXT.length) {
+      introTypingTimer = null;
+      btn.hidden = false;
+      btn.addEventListener("click", dismissIntro, { once: true });
+      btn.focus();
+      return;
+    }
+    const nextChar = INTRO_TEXT[i] || "";
+    const isPunct = /[.,;:!?]/.test(nextChar);
+    const delay = baseDelay + (isPunct ? punctExtra : 0) + Math.random() * 6;
+    introTypingTimer = window.setTimeout(tick, delay);
+  };
+
+  introTypingTimer = window.setTimeout(tick, baseDelay);
+}
 
 function startTypewriterForSlide(slideIndex) {
   const slide = slides[slideIndex];
@@ -727,7 +857,7 @@ updateDots();
 updateCanvasTheme(current);
 resizeCanvas();
 animateCanvas();
-startTypewriterForSlide(current);
+runIntro();
 syncSceneEffects();
 
 timeline.addEventListener("pointerdown", onPointerDown);

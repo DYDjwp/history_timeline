@@ -4,10 +4,43 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Justin Dart Jr. Timeline</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=VT323&family=Share+Tech+Mono&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
     <main class="timeline-app">
+      <div
+        id="introOverlay"
+        class="intro-overlay"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="introLabel"
+      >
+        <div class="intro-terminal">
+          <p class="intro-label" id="introLabel">Project thesis</p>
+          <div class="intro-meta" aria-hidden="true">
+            <span class="intro-prompt">&gt;</span> init_sequence · stream_01 · OK
+          </div>
+          <p class="intro-type-block">
+            <span id="introTypeText" class="intro-type-text"></span
+            ><span class="intro-caret" aria-hidden="true">█</span>
+          </p>
+          <button
+            type="button"
+            class="intro-start-btn"
+            id="introStartBtn"
+            hidden
+          >
+            Click to Start
+          </button>
+        </div>
+      </div>
+
       <canvas id="ambientCanvas" aria-hidden="true"></canvas>
 
       <section class="timeline" id="timeline" aria-live="polite">
@@ -361,6 +394,12 @@
           <div class="scene scene-fog"></div>
 
           <div class="visual-stage marriage-visual" aria-hidden="true">
+            <canvas
+              id="marriageSakuraCanvas"
+              class="marriage-sakura-canvas"
+              aria-hidden="true"
+            ></canvas>
+
             <div class="marriage-sun"></div>
             <div class="marriage-halo"></div>
 
@@ -820,14 +859,591 @@
             </p>
           </div>
         </article>
+        <article class="slide ada-1990" data-year="1990">
+          <div class="scene scene-vignette"></div>
+          <div class="scene scene-fog"></div>
 
+          <div class="visual-stage ada-visual" aria-hidden="true">
+            <div class="ada-sun-halo"></div>
+
+            <div class="south-lawn-stage">
+              <div class="whitehouse-lawn">
+                <div class="lawn-crowd crowd-left"></div>
+                <div class="lawn-crowd crowd-right"></div>
+
+                <div class="fountain fountain-left">
+                  <span class="pool"></span>
+                  <span class="spray spray-1"></span>
+                  <span class="spray spray-2"></span>
+                  <span class="spray spray-3"></span>
+                </div>
+
+                <div class="fountain fountain-right">
+                  <span class="pool"></span>
+                  <span class="spray spray-1"></span>
+                  <span class="spray spray-2"></span>
+                  <span class="spray spray-3"></span>
+                </div>
+
+                <div class="grass-band"></div>
+              </div>
+
+              <div class="ceremony-platform">
+                <div class="platform-shadow"></div>
+                <div class="platform"></div>
+
+                <div class="open-law-light"></div>
+                <div class="open-law-door door-left"></div>
+                <div class="open-law-door door-right"></div>
+
+                <div class="figure-row-behind">
+                  <div class="back-figure bf-left">
+                    <span class="head"></span>
+                    <span class="hair"></span>
+                    <span class="body"></span>
+                  </div>
+                  <div class="back-figure bf-right">
+                    <span class="head"></span>
+                    <span class="hair"></span>
+                    <span class="body"></span>
+                  </div>
+                </div>
+
+                <div class="signer-figure">
+                  <span class="head"></span>
+                  <span class="hair"></span>
+                  <span class="body"></span>
+                  <span class="arm arm-left"></span>
+                  <span class="arm arm-right"></span>
+                </div>
+
+                <div class="ada-sign-table">
+                  <span class="table-top"></span>
+                  <span class="table-front"></span>
+                  <span class="table-leg leg-left"></span>
+                  <span class="table-leg leg-right"></span>
+                </div>
+
+                <div class="ada-document">
+                  <span class="paper"></span>
+                  <span class="line l1"></span>
+                  <span class="line l2"></span>
+                  <span class="line l3"></span>
+                  <span class="seal"></span>
+                </div>
+
+                <div class="seated-figure seated-left">
+                  <span class="head"></span>
+                  <span class="hair"></span>
+                  <span class="body"></span>
+                  <span class="arm arm-left"></span>
+                  <span class="arm arm-right"></span>
+                </div>
+
+                <div class="seated-figure seated-right justin-seat">
+                  <span class="head"></span>
+                  <span class="hair"></span>
+                  <span class="body"></span>
+                  <span class="arm arm-left"></span>
+                  <span class="arm arm-right"></span>
+                </div>
+
+                <div class="victory-glow"></div>
+              </div>
+            </div>
+
+            <div class="ground-line"></div>
+          </div>
+
+          <div
+            class="typewriter-top"
+            data-type-text="On July 26, 1990, doors long held shut were finally pushed open by law."
+            aria-hidden="true"
+          >
+            <span class="typewriter-text"></span>
+            <span class="typewriter-caret">|</span>
+          </div>
+
+          <div class="slide-overlay"></div>
+
+          <div class="slide-content">
+            <p class="eyebrow">Justin Dart Jr.</p>
+            <span class="year">July 26, 1990</span>
+            <h1>The ADA Becomes Law</h1>
+            <p>
+              On the White House South Lawn, the Americans with Disabilities Act was
+              signed into law. Justin Dart was there to witness the turning of history.
+            </p>
+            <p class="mood">
+              Mood: climax, release, and historic victory.
+            </p>
+          </div>
+        </article>
+        <article class="slide medal-1998" data-year="1998">
+          <div class="scene scene-vignette"></div>
+          <div class="scene scene-fog"></div>
+
+          <div class="visual-stage medal-visual" aria-hidden="true">
+            <div class="medal-sun-halo"></div>
+
+            <div class="eastroom-pov-stage">
+              <div class="entry-camera">
+                <div class="entry-light"></div>
+                <div class="entry-doorframe"></div>
+
+                <div class="ceremony-view">
+                  <div class="eastroom-wall"></div>
+                  <div class="eastroom-ceiling-glow"></div>
+
+                  <div class="eastroom-curtain curtain-left"></div>
+                  <div class="eastroom-curtain curtain-right"></div>
+
+                  <div class="chandelier ch-left">
+                    <span class="chain"></span>
+                    <span class="crown"></span>
+                    <span class="ring"></span>
+                  </div>
+                  <div class="chandelier ch-center">
+                    <span class="chain"></span>
+                    <span class="crown"></span>
+                    <span class="ring"></span>
+                  </div>
+                  <div class="chandelier ch-right">
+                    <span class="chain"></span>
+                    <span class="crown"></span>
+                    <span class="ring"></span>
+                  </div>
+
+                  <div class="flag-set flag-left">
+                    <span class="pole"></span>
+                    <span class="flag"></span>
+                  </div>
+                  <div class="flag-set flag-right">
+                    <span class="pole"></span>
+                    <span class="flag"></span>
+                  </div>
+
+                  <div class="eastroom-floor"></div>
+                  <div class="eastroom-carpet"></div>
+
+                  <div class="audience-bank bank-left">
+                    <span class="person p1"></span>
+                    <span class="person p2"></span>
+                    <span class="person p3"></span>
+                    <span class="person p4"></span>
+                  </div>
+                  <div class="audience-bank bank-right">
+                    <span class="person p1"></span>
+                    <span class="person p2"></span>
+                    <span class="person p3"></span>
+                    <span class="person p4"></span>
+                  </div>
+
+                  <div class="award-stage-shadow"></div>
+                  <div class="award-stage"></div>
+
+                  <div class="president-award">
+                    <span class="head"></span>
+                    <span class="hair"></span>
+                    <span class="body"></span>
+                    <span class="arm arm-left"></span>
+                    <span class="arm arm-right"></span>
+                  </div>
+
+                  <div class="honoree-justin">
+                    <span class="head"></span>
+                    <span class="hair"></span>
+                    <span class="body"></span>
+                    <span class="arm arm-left"></span>
+                    <span class="arm arm-right"></span>
+                  </div>
+
+                  <div class="freedom-medal-badge">
+                    <span class="ribbon"></span>
+                    <span class="medal-core"></span>
+                    <span class="medal-rays"></span>
+                  </div>
+
+                  <div class="applause-burst burst-left"></div>
+                  <div class="applause-burst burst-right"></div>
+                </div>
+
+                <div class="east-door east-door-left">
+                  <span class="panel panel-top"></span>
+                  <span class="panel panel-bottom"></span>
+                  <span class="handle"></span>
+                </div>
+
+                <div class="east-door east-door-right">
+                  <span class="panel panel-top"></span>
+                  <span class="panel panel-bottom"></span>
+                  <span class="handle"></span>
+                </div>
+
+                <div class="door-push-hand">
+                  <span class="push-arm"></span>
+                  <span class="push-hand"></span>
+                </div>
+              </div>
+            </div>
+
+            <div class="ground-line"></div>
+          </div>
+
+          <div
+            class="typewriter-top"
+            data-type-text="This medal did not honor only one man. It also acknowledged a long struggle for equal rights that the nation had ignored for too long."
+            aria-hidden="true"
+          >
+            <span class="typewriter-text"></span>
+            <span class="typewriter-caret">|</span>
+          </div>
+
+          <div class="slide-overlay"></div>
+
+          <div class="slide-content">
+            <p class="eyebrow">Justin Dart Jr.</p>
+            <span class="year">1998</span>
+            <h1>The Presidential Medal of Freedom</h1>
+            <p>
+              In 1998, President Clinton awarded him the Presidential Medal of Freedom.
+              The honor recognized not only one life, but a movement for equality that
+              had finally been seen by the nation.
+            </p>
+            <p class="mood">
+              Mood: solemn, honored, and nationally acknowledged.
+            </p>
+          </div>
+        </article>
+        <article class="slide memorial-2002" data-year="2002">
+          <div class="scene scene-vignette"></div>
+          <div class="scene scene-fog"></div>
+
+          <div class="visual-stage memorial-visual" aria-hidden="true">
+            <div class="memorial-glow"></div>
+
+            <div class="memorial-stage-floor"></div>
+            <div class="memorial-stage-haze"></div>
+
+            <div class="memorial-wheelchair">
+              <span class="wheel big"></span>
+              <span class="rim big"></span>
+              <span class="wheel small"></span>
+              <span class="rim small"></span>
+              <span class="seat"></span>
+              <span class="back"></span>
+              <span class="handle"></span>
+              <span class="leg"></span>
+              <span class="foot"></span>
+            </div>
+
+            <div class="memorial-hat">
+              <span class="hat-brim"></span>
+              <span class="hat-crown"></span>
+              <span class="hat-band"></span>
+            </div>
+
+            <div class="memory-album-wrap">
+              <div class="album-shadow"></div>
+              <div class="album-spine"></div>
+
+              <div class="album-cover album-back"></div>
+
+              <div class="album-pages">
+              <div class="album-page left-page">
+                <figure class="memory-photo photo-1">
+                  <img
+                    class="memory-img"
+                    src="https://www.polioplace.org/sites/default/files/person/Dart1.jpg"
+                    alt="Justin Dart Jr. with Gini and Joe Laurie at the Second International Post-Polio Conference, 1983"
+                    referrerpolicy="no-referrer"
+                  />
+                  <figcaption class="memory-caption">
+                    Justin Dart (right) with Gini and Joe Laurie, Second International Post-Polio Conference and Symposium on Living Independently with Severe Disability, 1983. PHI archives.
+                  </figcaption>
+                </figure>
+
+                <figure class="memory-photo photo-2">
+                  <img
+                    class="memory-img"
+                    src="https://beta.dol.gov/system/files/styles/width_1200/private/media/2025-08/Dart.jpg?itok=2qZHCgOx"
+                    alt="Justin Dart Jr. from the U.S. Department of Labor"
+                    referrerpolicy="no-referrer"
+                  />
+                  <figcaption class="memory-caption">
+                    Justin Dart Jr., civil rights organizer, business leader, and disability rights advocate whose public service helped lead to the ADA and later earned him the Presidential Medal of Freedom. U.S. Department of Labor.
+                  </figcaption>
+                </figure>
+
+                <div class="memory-note">
+                  <span class="note-line n1"></span>
+                  <span class="note-line n2"></span>
+                  <span class="note-line n3"></span>
+                  <span class="note-tag">OPENED DOORS</span>
+                </div>
+              </div>
+
+              <div class="album-page right-page">
+                <figure class="memory-photo photo-3">
+                  <img
+                    class="memory-img"
+                    src="https://media.gettyimages.com/id/1287685874/photo/president-bush-signs-the-americans-with-disabilities-act.jpg?s=1024x1024&w=gi&k=20&c=W6xwg6gAgDyKReetet0xlOxB910TY0dsCbEuBOfUEL0="
+                    alt="President Bush signs the Americans with Disabilities Act on the White House South Lawn, July 26, 1990"
+                    referrerpolicy="no-referrer"
+                  />
+                  <figcaption class="memory-caption">
+                    President Bush signs the Americans with Disabilities Act on the White House South Lawn, July 26, 1990. Justin Dart Jr. is pictured at right. Photo by Ron Sachs/CNP/Getty Images.
+                  </figcaption>
+                </figure>
+
+                <figure class="memory-photo photo-4">
+                  <img
+                    class="memory-img"
+                    src="https://media.gettyimages.com/id/897029892/photo/president-clinton-signs-executive-memorandum.jpg?s=1024x1024&w=gi&k=20&c=SuKXVQIV7IZ05XWkizjt_vQogyVYcwPHAeNC_A-jtK4="
+                    alt="President Clinton signs Executive Memorandum in 1998 with Justin Dart Jr. present"
+                    referrerpolicy="no-referrer"
+                  />
+                  <figcaption class="memory-caption">
+                    President Clinton signs an Executive Memorandum on disability rights, Washington, D.C., July 29, 1998. Justin Dart Jr. is pictured among the attendees. Photo by Barbara Kinney/White House/CNP/Getty Images.
+                  </figcaption>
+                </figure>
+
+                <div class="memory-ribbon">
+                  <span>ADA</span>
+                  <span>JUSTICE</span>
+                  <span>ACCESS</span>
+                </div>
+              </div>
+              </div>
+
+              <div class="album-cover album-front">
+                <div class="front-cover-title">
+                  <span class="cover-small">Justin Dart Jr.</span>
+                  <span class="cover-large">Memory Book</span>
+                  <span class="cover-year">2002</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="ground-line"></div>
+          </div>
+
+          <div
+            class="typewriter-top"
+            data-type-text="He was gone, but the doors he helped open did not close again."
+            aria-hidden="true"
+          >
+            <span class="typewriter-text"></span>
+            <span class="typewriter-caret">|</span>
+          </div>
+
+          <div class="slide-overlay"></div>
+
+          <div class="slide-content">
+            <p class="eyebrow">Justin Dart Jr.</p>
+            <span class="year">2002</span>
+            <h1>The Man Is Gone, the Door Stays Open</h1>
+            <p>
+              He died in Washington in 2002, after years of living with the effects of
+              polio and congestive heart failure. But the movement he helped carry
+              forward did not end with him.
+            </p>
+            <p class="mood">
+              Mood: closure, remembrance, and a lasting echo.
+            </p>
+          </div>
+        </article>
+        <article class="slide legacy-summary" data-year="Legacy">
+          <div class="scene scene-vignette"></div>
+          <div class="scene scene-fog"></div>
+          <div class="slide-overlay"></div>
+
+          <div class="legacy-summary-shell">
+            <section class="legacy-summary-hero">
+              <p class="legacy-summary-kicker">Justin Dart Jr. · Final Reflection</p>
+              <h1 class="legacy-summary-title">A Door Opened for Millions</h1>
+              <p class="legacy-summary-subtitle">
+                He changed not only disability law, but the nation’s understanding of citizenship, dignity, and access.
+              </p>
+            </section>
+
+            <section class="legacy-summary-essay">
+              <h2>Conclusion</h2>
+              <p>
+                Justin Dart Jr. was one of the most important leaders in the history of disability rights in the United States.
+                After polio changed his own life, he refused to accept a world in which disabled people were pushed aside,
+                hidden, or treated only with pity. Instead, he helped transform disability into a question of civil rights.
+                He listened closely to the lived experiences of disabled Americans, carried those stories into public life,
+                and turned them into moral and political force.
+              </p>
+              <p>
+                His influence reached from local communities to the federal government. He served on state and national
+                disability bodies, pushed for public accountability, and became one of the clearest national voices arguing
+                that access was not charity, but justice. His work was especially crucial in the fight for the Americans with
+                Disabilities Act. The ADA did not simply change paperwork or policy language; it changed everyday life. It
+                widened access to schools, jobs, transportation, public buildings, and participation in civic life.
+              </p>
+              <p>
+                What made Justin Dart Jr. extraordinary was the way he joined empathy with action. He was not only a speaker
+                or a symbol. He was an organizer, witness, strategist, and builder of institutions. Because of that work,
+                millions of Americans live in a country with stronger protections, wider access, and a clearer promise of
+                equality. His legacy survives not only in memory, but in law, in public space, and in every door that now
+                opens where it once remained closed.
+              </p>
+            </section>
+          </div>
+        </article>
+
+        <article class="slide legacy-references" data-year="Sources">
+          <div class="scene scene-vignette"></div>
+          <div class="scene scene-fog"></div>
+          <div class="slide-overlay"></div>
+
+          <div class="legacy-references-shell">
+            <section class="legacy-references-hero">
+              <p class="legacy-references-kicker">Justin Dart Jr. · References</p>
+              <h1 class="legacy-references-title">Works Cited Across the Timeline</h1>
+              <p class="legacy-references-subtitle">
+                Key sources used for the scenes, dates, images, and historical details in this project.
+              </p>
+            </section>
+
+            <section class="legacy-references-panel">
+              <ol class="legacy-reference-list">
+                <li>
+                  <span class="ref-scene">1930 · Birth / family background</span>
+                  <a href="https://beta.dol.gov/about/history/hall-honor-inductees/justin-dart-jr" target="_blank" rel="noopener noreferrer">
+                    U.S. Department of Labor — Justin Dart Jr.
+                  </a>
+                </li>
+
+                <li>
+                  <span class="ref-scene">1948 · Polio and life change</span>
+                  <a href="https://beta.dol.gov/about/history/hall-honor-inductees/justin-dart-jr" target="_blank" rel="noopener noreferrer">
+                    U.S. Department of Labor — Justin Dart Jr.
+                  </a>
+                </li>
+
+                <li>
+                  <span class="ref-scene">1953–1954 · University of Houston / anti-racism organizing</span>
+                  <a href="https://beta.dol.gov/about/history/hall-honor-inductees/justin-dart-jr" target="_blank" rel="noopener noreferrer">
+                    U.S. Department of Labor — Justin Dart Jr.
+                  </a>
+                </li>
+
+                <li>
+                  <span class="ref-scene">1956–1965 · Business career / U.S.–Mexico–Japan</span>
+                  <a href="https://beta.dol.gov/about/history/hall-honor-inductees/justin-dart-jr" target="_blank" rel="noopener noreferrer">
+                    U.S. Department of Labor — Justin Dart Jr.
+                  </a>
+                </li>
+
+                <li>
+                  <span class="ref-scene">1968 · Marriage to Yoshiko Dart</span>
+                  <a href="https://www.polioplace.org/people/justin-whitlock-dart-jr" target="_blank" rel="noopener noreferrer">
+                    Polio Place — Justin Whitlock Dart Jr.
+                  </a>
+                </li>
+
+                <li>
+                  <span class="ref-scene">1974 · Return to the U.S. / Texas advocacy</span>
+                  <a href="https://www.ncd.gov/about/history/" target="_blank" rel="noopener noreferrer">
+                    National Council on Disability — Institutional history
+                  </a>
+                </li>
+
+                <li>
+                  <span class="ref-scene">1980–1985 · Texas Governor’s Committee / public affairs work</span>
+                  <a href="https://www.ncd.gov/report/national-disability-policy-a-progress-report-february-1986/" target="_blank" rel="noopener noreferrer">
+                    National Council on Disability — National Disability Policy (1986)
+                  </a>
+                </li>
+
+                <li>
+                  <span class="ref-scene">1981 · Federal appointment / National Council on Disability</span>
+                  <a href="https://www.ncd.gov/about/history/" target="_blank" rel="noopener noreferrer">
+                    National Council on Disability — History
+                  </a>
+                </li>
+
+                <li>
+                  <span class="ref-scene">1990 · ADA signing</span>
+                  <a href="https://media.gettyimages.com/id/1287685874/photo/president-bush-signs-the-americans-with-disabilities-act.jpg?s=1024x1024&w=gi&k=20&c=W6xwg6gAgDyKReetet0xlOxB910TY0dsCbEuBOfUEL0=" target="_blank" rel="noopener noreferrer">
+                    Getty Images — President Bush Signs the Americans with Disabilities Act
+                  </a>
+                </li>
+
+                <li>
+                  <span class="ref-scene">1990 · ADA policy context / national hearings</span>
+                  <a href="https://www.ncd.gov/report/americans-with-disabilities-act-watch-year-one-a-report-to-the-president-and-the-congress-on-progress-in-implementing-the-americans-with-disabilities-act/" target="_blank" rel="noopener noreferrer">
+                    National Council on Disability — ADA Watch: Year One
+                  </a>
+                </li>
+
+                <li>
+                  <span class="ref-scene">1998 · Presidential Medal of Freedom</span>
+                  <a href="https://clintonwhitehouse6.archives.gov/1998/01/1998-01-15-remarks-by-the-president-at-medals-of-freedom-event.html" target="_blank" rel="noopener noreferrer">
+                    Clinton White House Archives — Remarks at the Medal of Freedom Event
+                  </a>
+                </li>
+
+                <li>
+                  <span class="ref-scene">1998 · Clinton / disability executive action image</span>
+                  <a href="https://media.gettyimages.com/id/897029892/photo/president-clinton-signs-executive-memorandum.jpg?s=1024x1024&w=gi&k=20&c=SuKXVQIV7IZ05XWkizjt_vQogyVYcwPHAeNC_A-jtK4=" target="_blank" rel="noopener noreferrer">
+                    Getty Images — President Clinton Signs Executive Memorandum
+                  </a>
+                </li>
+
+                <li>
+                  <span class="ref-scene">2002 · Death / memorial</span>
+                  <a href="https://www.polioplace.org/people/justin-whitlock-dart-jr" target="_blank" rel="noopener noreferrer">
+                    Polio Place — Justin Whitlock Dart Jr.
+                  </a>
+                </li>
+
+                <li>
+                  <span class="ref-scene">Memorial album photo</span>
+                  <a href="https://www.polioplace.org/sites/default/files/person/Dart1.jpg" target="_blank" rel="noopener noreferrer">
+                    PHI Archives / Polio Place — Dart with Gini and Joe Laurie, 1983
+                  </a>
+                </li>
+
+                <li>
+                  <span class="ref-scene">Summary background image</span>
+                  <a href="https://www.april-rural.org/images/stories/200909/200910/justin_dart.jpg" target="_blank" rel="noopener noreferrer">
+                    APRIL Rural — Justin Dart Jr. image
+                  </a>
+                </li>
+              </ol>
+            </section>
+          </div>
+        </article>
       </section>
       <div class="timeline-ui">
         <div class="dots" id="dots" aria-hidden="true"></div>
         <p class="swipe-hint">Swipe Up / Down · Scroll · Use ↑ ↓</p>
       </div>
+
+      <div class="music-fab" id="musicFab">
+        <div class="music-notes" aria-hidden="true">
+          <span class="music-note music-note-a">♪</span>
+          <span class="music-note music-note-b">♫</span>
+          <span class="music-note music-note-c">♩</span>
+        </div>
+        <button
+          class="music-toggle"
+          id="musicToggle"
+          type="button"
+          aria-label="Mute background music"
+          aria-pressed="false"
+        >
+          ♪
+        </button>
+      </div>
+      <audio id="bgMusic" src="./output.mp3" loop autoplay></audio>
     </main>
 
     <script src="./script.js"></script>
+    <script src="./marriage-sakura-tree.js" defer></script>
   </body>
 </html>
