@@ -40,6 +40,41 @@ body {
   transition: opacity 420ms ease, visibility 0s linear;
 }
 
+.intro-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: clamp(0.75rem, 2vw, 1.1rem);
+  width: 100%;
+  max-width: min(40rem, 92vw);
+  position: relative;
+  z-index: 1;
+}
+
+.intro-disclaimer {
+  margin: 0;
+  padding: 0.55rem 0.75rem;
+  font-size: clamp(0.78rem, 1.35vw, 0.92rem);
+  line-height: 1.45;
+  text-align: center;
+  letter-spacing: 0.03em;
+  color: rgba(120, 220, 150, 0.82);
+  border: 1px solid rgba(57, 255, 20, 0.28);
+  border-radius: 2px;
+  background: rgba(4, 14, 10, 0.75);
+  box-shadow: inset 0 0 0 1px rgba(0, 40, 20, 0.35);
+}
+
+.intro-disclaimer a {
+  color: #7dff9a;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.intro-disclaimer a:hover {
+  color: #b8ffc8;
+}
+
 .intro-overlay::before {
   content: "";
   position: absolute;
@@ -78,7 +113,7 @@ body {
   position: relative;
   z-index: 1;
   width: 100%;
-  max-width: min(40rem, 92vw);
+  max-width: none;
   padding: clamp(1.1rem, 2.5vw, 1.75rem);
   border: 2px solid rgba(57, 255, 20, 0.45);
   border-radius: 2px;
